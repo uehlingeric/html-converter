@@ -1,0 +1,355 @@
+<svg viewBox="0 0 800 1025" xmlns="http://www.w3.org/2000/svg">
+  <!-- Styles -->
+  <defs>
+    <style>
+      .title {
+        font-family: "Arial", sans-serif;
+        font-size: 28px;
+        font-weight: bold;
+        text-anchor: middle;
+        fill: #ffffff;
+      }
+      .phase-title {
+        font-family: "Arial", sans-serif;
+        font-size: 20px;
+        font-weight: bold;
+        text-anchor: middle;
+        fill: #9cb4d8;
+      }
+      .step-title {
+        font-family: "Arial", sans-serif;
+        font-size: 14px;
+        font-weight: bold;
+        text-anchor: middle;
+        fill: #ffffff;
+      }
+      .description {
+        font-family: "Arial", sans-serif;
+        font-size: 10px;
+        text-anchor: middle;
+        fill: #dddddd;
+      }
+      .arrow {
+        fill: none;
+        stroke: #5d8aa8;
+        stroke-width: 2;
+        marker-end: url(#arrowhead);
+      }
+      .dashed-arrow {
+        fill: none;
+        stroke: #5d8aa8;
+        stroke-width: 2;
+        stroke-dasharray: 5, 5;
+        marker-end: url(#arrowhead);
+      }
+
+      .document {
+        fill: #2c3e50;
+        stroke: #5d8aa8;
+        stroke-width: 1.5;
+      }
+      .process {
+        fill: #1a472a;
+        stroke: #2ecc71;
+        stroke-width: 1.5;
+        rx: 5;
+        ry: 5;
+      }
+      .data {
+        fill: #4a3800;
+        stroke: #f39c12;
+        stroke-width: 1.5;
+        rx: 5;
+        ry: 5;
+      }
+      .ai {
+        fill: #3a1e54;
+        stroke: #9b59b6;
+        stroke-width: 1.5;
+        rx: 5;
+        ry: 5;
+      }
+      .notebook {
+        fill: #1a3c56;
+        stroke: #3498db;
+        stroke-width: 1.5;
+        rx: 5;
+        ry: 5;
+      }
+      .info-box {
+        fill: #1e293b;
+        stroke: #64748b;
+        stroke-width: 1;
+        rx: 5;
+        ry: 5;
+      }
+
+      .phase-border {
+        fill: none;
+        stroke: #374151;
+        stroke-width: 1;
+        stroke-dasharray: 4, 4;
+        rx: 10;
+        ry: 10;
+      }
+      .icon {
+        font-size: 18px;
+        text-anchor: middle;
+      }
+      .note {
+        font-family: "Arial", sans-serif;
+        font-size: 12px;
+        font-style: italic;
+        text-anchor: middle;
+        fill: #a0aec0;
+      }
+    </style>
+    <marker
+      id="arrowhead"
+      markerWidth="10"
+      markerHeight="7"
+      refX="9"
+      refY="3.5"
+      orient="auto"
+    >
+      <polygon points="0 0, 10 3.5, 0 7" fill="#5d8aa8" />
+    </marker>
+
+    <!-- Drop shadow filter -->
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow
+        dx="2"
+        dy="2"
+        stdDeviation="2"
+        flood-color="#000"
+        flood-opacity="0.3"
+      />
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="1025" fill="#0f172a" />
+
+  <!-- Title -->
+  <text x="400" y="40" class="title" filter="url(#shadow)">
+    PDF to Batched JSON ETL Pipeline
+  </text>
+
+  <!-- Phase 1 -->
+  <rect x="50" y="60" width="700" height="180" class="phase-border" />
+  <text x="400" y="85" class="phase-title">Phase 1: Data Extraction</text>
+
+  <!-- Input -->
+  <g transform="translate(108, 108)">
+    <rect width="144" height="84" class="document" filter="url(#shadow)" />
+    <rect width="144" height="78" y="6" class="document" />
+    <rect width="144" height="72" y="12" class="document" />
+    <text x="72" y="36" class="step-title">Zipped PDFs</text>
+    <text x="72" y="60" class="description">Board meeting documents</text>
+  </g>
+
+  <!-- Process 1: Unzip -->
+  <g transform="translate(326, 113)">
+    <rect width="168" height="84" class="process" filter="url(#shadow)" />
+    <text x="84" y="27" class="step-title">Unzip &amp; Rename</text>
+    <text x="84" y="51" class="description">Extract PDFs from zip</text>
+    <text x="84" y="67" class="description">Rename using district names</text>
+  </g>
+
+  <!-- Output Phase 1 -->
+  <g transform="translate(580, 120)">
+    <rect width="40" height="50" class="document" filter="url(#shadow)" />
+    <rect width="40" height="50" x="10" y="5" class="document" />
+    <rect width="40" height="50" x="20" y="10" class="document" />
+    <rect width="40" height="50" x="30" y="15" class="document" />
+    <text x="72" y="87" class="step-title">Extracted PDFs</text>
+    <text x="72" y="106" class="description">Organized by district</text>
+  </g>
+
+  <!-- Phase 2 -->
+  <rect x="50" y="260" width="700" height="180" class="phase-border" />
+  <text x="400" y="285" class="phase-title">
+    Phase 2: Text Extraction &amp; Batch Processing
+  </text>
+
+  <!-- Input Phase 2 -->
+  <g transform="translate(120, 320)">
+    <rect width="40" height="50" class="document" filter="url(#shadow)" />
+    <rect width="40" height="50" x="10" y="5" class="document" />
+    <rect width="40" height="50" x="20" y="10" class="document" />
+    <rect width="40" height="50" x="30" y="15" class="document" />
+    <text x="60" y="90" class="step-title">Extracted PDFs</text>
+    <text x="60" y="105" class="description">From Phase 1</text>
+  </g>
+
+  <!-- Process 2: Text Extraction (20% larger, moved up 15px) -->
+  <g transform="translate(248, 313)">
+    <rect width="144" height="84" class="process" filter="url(#shadow)" />
+    <text x="72" y="25" class="step-title">Text Extraction</text>
+    <text x="72" y="45" class="description">Extract text from PDFs</text>
+    <text x="72" y="58" class="description">Analyze font size</text>
+  </g>
+
+  <!-- Process 3: Batch Processing (20% larger, moved up 15px) -->
+  <g transform="translate(428, 313)">
+    <rect width="144" height="84" class="process" filter="url(#shadow)" />
+    <text x="72" y="25" class="step-title">Batch Processing</text>
+    <text x="72" y="45" class="description">Group text into batches</text>
+    <text x="72" y="58" class="description">Merge small segments</text>
+  </g>
+
+  <!-- Output Phase 2 (20% larger, moved up 15px) -->
+  <g transform="translate(610, 313)">
+    <rect width="120" height="84" class="data" filter="url(#shadow)" />
+    <text x="60" y="25" class="step-title">Raw JSON</text>
+    <text x="60" y="45" class="description">Structured text data</text>
+    <text x="60" y="58" class="description">Organized in batches</text>
+  </g>
+
+  <!-- Phase 3 -->
+  <rect x="50" y="460" width="700" height="180" class="phase-border" />
+  <text x="400" y="485" class="phase-title">
+    Phase 3: Metadata Extraction with LLM
+  </text>
+
+  <!-- Input Phase 3 -->
+  <g transform="translate(110, 513)">
+    <rect width="120" height="84" class="data" filter="url(#shadow)" />
+    <text x="60" y="30" class="step-title">Raw JSON</text>
+    <text x="60" y="50" class="description">From Phase 2</text>
+  </g>
+
+  <!-- Process 4: LLM Extraction -->
+  <g transform="translate(326, 500)">
+    <rect width="168" height="120" class="ai" filter="url(#shadow)" />
+    <text x="84" y="25" class="step-title">AI Metadata Extraction</text>
+    <text x="84" y="43" class="description">Local Phi-4 LLM via Ollama</text>
+    <text x="84" y="56" class="description">Extracts date, address,</text>
+    <text x="84" y="69" class="description">district name, district code</text>
+    <text x="84" y="82" class="description">Reprocesses incomplete data</text>
+    <text x="84" y="105" class="icon">🤖</text>
+  </g>
+
+  <!-- Output Phase 3 -->
+  <g transform="translate(568, 512)">
+    <rect width="144" height="96" class="data" filter="url(#shadow)" />
+    <text x="72" y="25" class="step-title">Processed JSON</text>
+    <text x="72" y="43" class="description">Enhanced with metadata:</text>
+    <text x="72" y="56" class="description">- Meeting date</text>
+    <text x="72" y="69" class="description">- Address</text>
+    <text x="72" y="82" class="description">- District information</text>
+  </g>
+
+  <!-- Phase 4 -->
+  <rect x="50" y="660" width="700" height="320" class="phase-border" />
+  <text x="400" y="685" class="phase-title">
+    Phase 4: Data Cleaning &amp; Organization
+  </text>
+
+  <!-- Input Phase 4 -->
+  <g transform="translate(108, 710)">
+    <rect width="144" height="96" class="data" filter="url(#shadow)" />
+    <text x="72" y="40" class="step-title">Processed JSON</text>
+    <text x="72" y="60" class="description">From Phase 3</text>
+  </g>
+
+  <!-- Process 5: Data Cleaning -->
+  <g transform="translate(326, 710)">
+    <rect width="168" height="120" class="notebook" filter="url(#shadow)" />
+    <text x="84" y="30" class="step-title">Data Cleaning</text>
+    <text x="84" y="48" class="description">Fill missing values</text>
+    <text x="84" y="61" class="description">Standardize district info</text>
+    <text x="84" y="74" class="description">Create district mapping</text>
+    <text x="84" y="87" class="description">Generate unique filenames</text>
+    <text x="84" y="110" class="icon">📊</text>
+  </g>
+
+  <!-- Output Phase A -->
+  <g transform="translate(580, 700)">
+    <rect width="120" height="60" class="data" filter="url(#shadow)" />
+    <text x="60" y="22" class="step-title">Clean JSON</text>
+    <text x="60" y="37" class="description">Standardized data</text>
+    <text x="60" y="50" class="description">reports.json</text>
+  </g>
+
+  <!-- Output Phase B -->
+  <g transform="translate(580, 780)">
+    <rect width="120" height="60" class="data" filter="url(#shadow)" />
+    <text x="60" y="23" class="step-title">District Data</text>
+    <text x="60" y="38" class="description">Unique districts</text>
+    <text x="60" y="51" class="description">districts.csv</text>
+  </g>
+
+  <!-- Output Phase C -->
+  <g transform="translate(580, 860)">
+    <rect width="40" height="50" class="document" filter="url(#shadow)" />
+    <rect width="40" height="50" x="10" y="5" class="document" />
+    <rect width="40" height="50" x="20" y="10" class="document" />
+    <rect width="40" height="50" x="30" y="15" class="document" />
+    <text x="60" y="90" class="step-title">Renamed PDFs</text>
+    <text x="60" y="105" class="description">Consistent naming</text>
+  </g>
+
+  <!-- Arrows Phase 1 -->
+  <line x1="252" y1="150" x2="326" y2="150" class="arrow" />
+  <line x1="494" y1="150" x2="574" y2="150" class="arrow" />
+
+  <!-- Connecting Phase 1 to Phase 2 -->
+  <line x1="590" y1="165" x2="590" y2="240" class="dashed-arrow" />
+  <line
+    x1="590"
+    y1="240"
+    x2="160"
+    y2="240"
+    stroke-dasharray="5,5"
+    stroke="#5d8aa8"
+    stroke-width="2"
+  />
+  <line x1="160" y1="240" x2="160" y2="320" class="dashed-arrow" />
+
+  <!-- Arrows Phase 2 -->
+  <line x1="180" y1="335" x2="248" y2="335" class="arrow" />
+  <line x1="392" y1="335" x2="428" y2="335" class="arrow" />
+  <line x1="572" y1="335" x2="608" y2="335" class="arrow" />
+
+  <!-- Connecting Phase 2 to Phase 3 -->
+  <line x1="670" y1="400" x2="670" y2="440" class="dashed-arrow" />
+  <line
+    x1="670"
+    y1="440"
+    x2="170"
+    y2="440"
+    stroke-dasharray="5,5"
+    stroke="#5d8aa8"
+    stroke-width="2"
+  />
+  <line x1="170" y1="440" x2="170" y2="513" class="dashed-arrow" />
+
+  <!-- Arrows Phase 3 -->
+  <line x1="230" y1="550" x2="326" y2="550" class="arrow" />
+  <line x1="494" y1="550" x2="568" y2="550" class="arrow" />
+
+  <!-- Connecting Phase 3 to Phase 4 -->
+  <line x1="640" y1="610" x2="640" y2="640" class="dashed-arrow" />
+  <line
+    x1="640"
+    y1="640"
+    x2="180"
+    y2="640"
+    stroke-dasharray="5,5"
+    stroke="#5d8aa8"
+    stroke-width="2"
+  />
+  <line x1="180" y1="640" x2="180" y2="710" class="dashed-arrow" />
+
+  <!-- Arrows Phase 4 -->
+  <line x1="252" y1="760" x2="326" y2="760" class="arrow" />
+  <line x1="494" y1="730" x2="580" y2="730" class="arrow" />
+  <line x1="494" y1="760" x2="580" y2="810" class="arrow" />
+  <line x1="494" y1="790" x2="580" y2="880" class="arrow" />
+
+  <!-- Note -->
+  <text x="400" y="1000" class="note">
+    Complete ETL Pipeline for School District Board Meeting Documents
+  </text>
+</svg>
