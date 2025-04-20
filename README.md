@@ -62,18 +62,6 @@ Convert an HTML file to PDF with custom dimensions and longer wait time:
 python html_converter.py --input dashboard.html --output dashboard.pdf --width 1600 --height 1200 --wait 5
 ```
 
-## Troubleshooting
-
-If you encounter an error like "Please make sure you have Chrome installed", try:
-
-1. Make sure you've installed Playwright's browser binaries:
-```bash
-python -m playwright install chromium
-```
-
-2. Check that the input HTML file exists and is accessible.
-
-3. Ensure you have proper write permissions for the output directory.
 
 ## How It Works
 
@@ -89,3 +77,6 @@ This utility uses Playwright to:
 ## License
 
 This project is licensed under the MIT License - see the LICENSE file for details.
+
+## Author
+Eric Uehling
