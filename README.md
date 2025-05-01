@@ -19,7 +19,7 @@ A command-line utility to convert HTML files to PNG or PDF format using Playwrig
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/yourusername/html-converter.git
+git clone https://github.com/uehlingeric/html-converter.git
 cd html-converter
 ```
 
